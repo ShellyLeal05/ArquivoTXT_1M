@@ -11,7 +11,7 @@
 #define FILE_NEW "novo_arquivo.txt"
 
 // vai criar um arquivo.txt 
-//void createFile() {
+void createFile() {
     int fd = open(FILE_NAME, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
     if (fd == -1) {
         perror("Erro ao criar o arquivo");
@@ -86,7 +86,7 @@ void seekLine(int lineNum) {
         }
     }
     if (fgets(line, sizeof(line), file) != NULL) {
-        printf("Linha %d: NÃO AGUENTO MAIS AHHH.\n", lineNum);
+        printf("Linha %d:O limite da realidade é sua própria imaginação.\n", lineNum);
     } else {
         printf("Linha %d não encontrada.\n", lineNum);
     }
