@@ -10,7 +10,7 @@
 #define FILE_NAME "arquivo.txt"
 #define FILE_NEW "novo_arquivo.txt"
 
-// vai criar um arquivo.txt 
+//Cria um arquivo.txt 
 void createFile() {
     int fd = open(FILE_NAME, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
     if (fd == -1) {
@@ -21,7 +21,7 @@ void createFile() {
     printf("Arquivo criado: %s\n", FILE_NAME);
 }
 
-// vai escrever 1 milhão de linhas
+//Escreve 1 milhão de linhas
 void writeFile() {
     int fd = open(FILE_NAME, O_WRONLY | O_APPEND);
     if (fd == -1) {
@@ -41,7 +41,7 @@ void writeFile() {
     printf("Arquivo escrito com sucesso.\n");
 }
 
-// vai ler o arquivo 
+//Ler o arquivo
 void readFile() {
     int fd = open(FILE_NAME, O_RDONLY);
     if (fd == -1) {
@@ -60,7 +60,7 @@ void readFile() {
     }
     close(fd);
 }
-// vai renomear o aqruivo para novo_arquivo.txt
+//Renomeia o arquivo para novo_arquivo.txt
 void renameFile() {
     char newFileName[] = "novo_arquivo.txt";
     if (rename(FILE_NAME, newFileName) == -1) {
@@ -70,7 +70,7 @@ void renameFile() {
     printf("Arquivo renomeado para: %s\n", newFileName);
 }
 
-// vai procurar a linha escolhida e mudar o nome dela
+//Procura a linha escolhida e muda o nome dela
 void seekLine(int lineNum) {
     FILE* file = fopen(FILE_NEW, "r");
     if (file == NULL) {
@@ -92,7 +92,7 @@ void seekLine(int lineNum) {
     }
     fclose(file);
 }
-// depois de truncar vai deletar o arquivo
+//Depois de truncar, o arquivo será deletado
  void deleteFile() {
     if (remove(FILE_NEW) == -1) {
         perror("Erro ao excluir o arquivo");
@@ -108,7 +108,7 @@ int main() {
     renameFile();
     seekLine(1000000);
   
-// vai truncar o arquivo para 100bytes
+//Trunca o arquivo para 100bytes
 if (truncate(FILE_NEW, 100) == -1) {
         perror("Erro ao truncar o arquivo");
         exit(1);
