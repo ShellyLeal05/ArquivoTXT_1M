@@ -11,7 +11,7 @@
 #define FILE_NEW "novo_arquivo.txt"
 
 // vai criar um arquivo.txt 
-void createFile() {
+//void createFile() {
     int fd = open(FILE_NAME, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
     if (fd == -1) {
         perror("Erro ao criar o arquivo");
